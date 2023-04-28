@@ -29,7 +29,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public static DataPersistenceManager instance { get; private set; }
 
-    [SerializeField]private string firstPlayableSceneName = Constant.firstPlayableSceneName;
+    private string firstPlayableSceneName = Constant.firstPlayableSceneName;
     public string FirstPlayableSceneName{
         get { return firstPlayableSceneName; }
     }
@@ -51,6 +51,11 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogWarning("Data Persistence is currently disabled!");
         }
 
+        if(fileName == null)
+        {
+            Debug.LogWarning("Data Persistence can't save files with empty name, please configure it.");
+            return;
+        }
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
 
         InitializeSelectedProfileId();

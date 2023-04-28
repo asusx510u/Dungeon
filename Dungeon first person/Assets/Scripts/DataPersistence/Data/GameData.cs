@@ -89,6 +89,8 @@ public class GameData
     {
         public string name;
         public Vector3 playerPosition;
+        public Quaternion playerRotation;
+        public Quaternion playerCameraRotation;
         public SerializableDictionary<string, bool> coinsCollected;
         public SerializableDictionary<string, bool> itemsCollected;
         public SerializableDictionary<string, bool> testCollected;
@@ -97,6 +99,8 @@ public class GameData
         {
             this.name = "DefaultSceneName";
             playerPosition = Vector3.zero;
+            playerRotation = new Quaternion();
+            playerCameraRotation = new Quaternion();
             coinsCollected = new SerializableDictionary<string, bool>();
             itemsCollected = new SerializableDictionary<string, bool>();
             testCollected = new SerializableDictionary<string, bool>();
